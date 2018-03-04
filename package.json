@@ -1,0 +1,10 @@
+{
+  "name": "next-config",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "sayuti-daniel/next-config",
+  "peerDependencies": {
+    "config": "^1.30.0"
+  }
+}
