@@ -28,7 +28,7 @@ Create a custom document `pages/_document.js`
 
 ```js
 import Document, { Head, Main, NextScript } from "next/document";
-import htmlescape from "htmlesacpe";
+import htmlescape from "htmlescape";
 import config from "config";
 
 const __NEXT_CONFIG__ = { ...config };
