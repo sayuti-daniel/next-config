@@ -28,7 +28,7 @@ Create a custom document `pages/_document.js`
 
 ```js
 import Document, { Head, Main, NextScript } from "next/document";
-import htmlescape from "htmlescape";
+import htmlescape from "next/dist/server/htmlescape";
 import config from "config";
 
 const __NEXT_CONFIG__ = { ...config };
@@ -43,11 +43,12 @@ export default class extends Document {
         <body>
           <Main />
           <script
-            // eslint-disable-next-line react/no-danger
+            id="__NEXT_CONFIG__"
+            type="application/json"
+            nonce={this.props.nonce}
+            crossOrigin={this.props.crossOrigin || process.crossOrigin}
             dangerouslySetInnerHTML={{
-              __html: `
-                __NEXT_CONFIG__ = ${htmlescape(__NEXT_CONFIG__)}
-              `
+              __html: htmlescape(__NEXT_CONFIG__)
             }}
           />
           <NextScript />

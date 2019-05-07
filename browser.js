@@ -65,6 +65,10 @@ const makeImmutable = (object, property, value) => {
   return object;
 };
 
+const el = document.getElementById("__NEXT_CONFIG__");
+window.__NEXT_CONFIG__ =
+  JSON.parse(el && el.textContent) || window.__NEXT_CONFIG__;
+
 module.exports = Object.assign({}, __NEXT_CONFIG__, {
   get(property) {
     if (property === null || property === undefined) {
